@@ -1,4 +1,6 @@
 export default class TemplatedHTMLElement extends HTMLElement {
+  attributesCallbacks = {};
+
   constructor() {
     super();
     this.attachShadow({ mode: 'open' });
@@ -23,5 +25,9 @@ export default class TemplatedHTMLElement extends HTMLElement {
     this.shadowRoot.innerHTML = '';
     this.shadowRoot.appendChild(css);
     this.shadowRoot.appendChild(html);
+  }
+
+  attributeChangedCallback(name, oldValue, newValue) {
+    this.attributesCallbacks[name](oldValue, newValue);
   }
 }
