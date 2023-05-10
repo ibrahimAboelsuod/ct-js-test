@@ -1,0 +1,26 @@
+{
+  "parser": "@babel/eslint-parser",
+  "parserOptions": {
+    "parser": "@babel/eslint-parser",
+    "requireConfigFile": false // add this in package.json for Vue3
+  },
+  "extends": ["airbnb"],
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "rules": {
+    "import/no-extraneous-dependencies": [
+      "error",
+      { "devDependencies": ["webpack.dev.config.js", "webpack.prod.config.js"] }
+    ],
+    "no-console": "off"
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "moduleDirectory": ["node_modules", "src/"]
+      }
+    }
+  }
+}

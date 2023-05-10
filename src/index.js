@@ -1,11 +1,10 @@
-import AppHeader from './components/header/header.component.js';
+// eslint-disable-next-line no-unused-vars
+import { AppHeader } from 'components';
 
-import "./style.css";
+import './style.css';
 
-window.onload = (ev) => {
+const init = () => {};
+
+window.onload = () => {
   init();
-};
-
-const init = () => {
-  console.log("hello I am a sample index.js");
 };
