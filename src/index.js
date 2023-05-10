@@ -1,5 +1,4 @@
 /* eslint-disable no-unused-vars */
-// eslint-disable-next-line no-unused-vars
 import { AppHeader } from 'components';
 import 'assets/data/cars.json';
 
