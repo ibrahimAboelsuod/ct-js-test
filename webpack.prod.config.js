@@ -12,6 +12,9 @@ module.exports = {
       filename: "index.html",
     }),
   ],
+  module: {
+    rules: [{ test: /\.css$/, use: ["style-loader", "css-loader"] }],
+  },
   output: {
     path: path.resolve(__dirname, "dist"),
     clean: true,

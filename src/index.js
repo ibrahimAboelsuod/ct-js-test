@@ -1,3 +1,5 @@
+import './style.css';
+
 window.onload = (ev) => {
   init();
 };
