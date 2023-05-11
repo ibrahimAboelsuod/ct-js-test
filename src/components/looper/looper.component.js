@@ -5,15 +5,14 @@ import HTMLTemplate from './looper.component.html';
 export default class AppLooper extends TemplatedHTMLElement {
   static name = 'app-looper';
 
-  static get observedAttributes() {
-    return ['itemDataKey'];
+  get itemDataKey() {
+    return this.innerItemDataKey || this.getAttribute('itemDataKey');
   }
 
-  attributesCallbacks = {
-    itemDataKey: (oldValue, newValue) => {
-      this.itemDataKey = newValue;
-    },
-  };
+  set itemDataKey(newItemDataKey) {
+    this.innerItemDataKey = newItemDataKey;
+    this.render();
+  }
 
   get list() {
     return this.innerList || [];
@@ -34,6 +33,7 @@ export default class AppLooper extends TemplatedHTMLElement {
       throw new Error(`${AppLooper.name} can only have one child!`);
     }
 
+    // ToDo: Check if you can select by slot
     this.startingInnerHTML = this.children[0].cloneNode();
 
     if (this.list.length) {
