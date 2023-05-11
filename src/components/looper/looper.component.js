@@ -1,5 +1,3 @@
-/* eslint-disable class-methods-use-this */
-/* eslint-disable no-underscore-dangle */
 import { TemplatedHTMLElement } from 'classes';
 
 import HTMLTemplate from './looper.component.html';
@@ -18,14 +16,14 @@ export default class AppLooper extends TemplatedHTMLElement {
   };
 
   get list() {
-    return this._list || [];
+    return this.innerList || [];
   }
 
   set list(newList) {
     if (!Array.isArray(newList)) {
       throw new Error(`${AppLooper.name} list must be an array!}`);
     }
-    this._list = newList;
+    this.innerList = newList;
     this.render();
   }
 
