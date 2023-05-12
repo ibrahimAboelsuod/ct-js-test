@@ -10,6 +10,26 @@
   </head>
   <body>
     <h1>CARS:</h1>
+    <section class="filters">
+      <div class="filters__filter">
+        <label for="cars">Order By:</label>
+        <select
+          name="order-filter"
+          id="order-filter"
+        >
+          <option
+            value="price_up"
+            selected
+          >
+            Price (Low to High)
+          </option>
+          <option value="price_down">Price (High to Low)</option>
+          <option value="vendor_up">Vendor (A to Z)</option>
+          <option value="vendor_down">Vendor (Z to A)</option>
+        </select>
+      </div>
+    </section>
+
     <app-looper
       id="cars-looper"
       itemDataKey="car"

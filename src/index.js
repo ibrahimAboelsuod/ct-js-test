@@ -1,37 +1,25 @@
 /* eslint-disable no-unused-vars */
 import { AppHeader, AppLooper } from 'components';
-import 'assets/data/cars.json';
+import { getVehicles, orderVehiclesBy } from 'services';
 
 import './style.css';
 
-const fetchCars = async () => {
-  try {
-    const response = await fetch('assets/cars.json');
+let carLooper;
 
-    if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
-    }
+async function init() {
+  carLooper = document.querySelector('#cars-looper');
 
-    return await response.json();
-  } catch (error) {
-    return error;
-  }
-};
+  carLooper.list = orderVehiclesBy('price_up', await getVehicles());
+}
 
-const init = async () => {
-  const appLooper1 = document.querySelector('#cars-looper');
-
-  setInterval(() => {
-    appLooper1.list = new Array(Math.round(Math.random() * 5)).fill(1);
-  }, 1000);
-
-  const cars = await fetchCars();
-  console.log(cars);
-  // create card component
-  // bind data?
-  // render
-};
+function onOrderFilterChange(event) {
+  carLooper.list = orderVehiclesBy(event.target.value, carLooper.list);
+}
 
 window.onload = () => {
   init();
+
+  document
+    .querySelector('#order-filter')
+    .addEventListener('change', onOrderFilterChange);
 };

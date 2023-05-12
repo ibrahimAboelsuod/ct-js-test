@@ -36,3 +36,11 @@ app-looper {
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   }
 }
+
+.filters {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
