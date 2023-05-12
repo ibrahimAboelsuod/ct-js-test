@@ -14,7 +14,7 @@ export default class TemplatedHTMLElement extends HTMLElement {
   // eslint-disable-next-line class-methods-use-this
   getTemplateContent(templateHTML) {
     const template = document.createElement('template');
-    template.innerHTML = this.passScopeToTemplate(templateHTML.trim());
+    template.innerHTML = this.bindDataToTemplate(templateHTML.trim());
     return {
       css: template.content.firstChild,
       html: template.content.lastChild,
@@ -28,7 +28,7 @@ export default class TemplatedHTMLElement extends HTMLElement {
     this.shadowRoot.appendChild(html);
   }
 
-  passScopeToTemplate(template) {
+  bindDataToTemplate(template) {
     return template.replace(
       /\{{(.*?)}}/g,
       (expression, key) => lodashGet(this, key, expression),
