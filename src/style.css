@@ -1,6 +1,10 @@
 :root {
   --header-background: #444444;
   --white: #fff;
+
+  --light: #f4f4f4;
+  --light-contrast-rgb: 0, 0, 0;
+  --text-opacity: 0.85;
 }
 
 html,
@@ -8,12 +12,27 @@ body {
   padding: 0px;
   margin: 0px;
 }
-
-app-header {
-  --background: var(--header-background);
-  --h1Color: var(--white);
+* {
+  box-sizing: border-box;
 }
 
 body {
-  background-color: tomato;
+  background-color: var(--light);
+}
+app-looper {
+  width: 100%;
+  padding: 1rem;
+  /* list-style: none;
+  margin: 0; */
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: 100%;
+}
+
+@media only screen and (min-width: 600px) {
+  app-looper {
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  }
 }
