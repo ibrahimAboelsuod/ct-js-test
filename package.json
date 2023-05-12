@@ -5,6 +5,9 @@
   "main": "index.js",
   "author": "ibrahim.aboelsuod@zartis.com",
   "license": "ISC",
+  "repository": {
+    "url": "git+https://github.com/ibrahimAboelsuod/ct-js-test.git"
+  },
   "scripts": {
     "build:prod": "webpack --config webpack.prod.config.js",
     "build:dev": "webpack --config webpack.dev.config.js",
