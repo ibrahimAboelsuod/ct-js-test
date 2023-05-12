@@ -1,9 +1,20 @@
 <!DOCTYPE html>
 <html>
-  <head></head>
+  <head>
+    <meta charset="utf-8" />
+    <title>CT JS Test</title>
+    <meta
+      name="viewport"
+      content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0"
+    />
+  </head>
   <body>
-    I am body ! AAA
-
-    <app-header></app-header>
+    <h1>CARS:</h1>
+    <app-looper
+      id="cars-looper"
+      itemDataKey="car"
+    >
+      <app-car-card></app-car-card>
+    </app-looper>
   </body>
 </html>

@@ -1,4 +1,8 @@
 <style>
+  :host {
+    max-width: 100%;
+  }
+
   .car-card {
     background-color: var(--white);
     color: rgba(var(--light-contrast-rgb), var(--text-opacity));
@@ -27,9 +31,9 @@
   }
 
   .car-card__info-list {
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
     padding: 0.7rem;
-
     display: grid;
     grid-gap: 0.5rem;
     grid-template-columns: 50% 50%;
@@ -59,7 +63,7 @@
       {{car.Vendor.@Name}}
     </p>
     <p>
-      <strong>Passenger Quantity:</strong>
+      <strong>Passengers:</strong>
       {{car.Vehicle.@PassengerQuantity}}
     </p>
     <p>
@@ -67,8 +71,24 @@
       {{car.Vehicle.@AirConditionInd}}
     </p>
     <p>
-      <strong>Baggage Quantity:</strong>
+      <strong>Baggage:</strong>
       {{car.Vehicle.@BaggageQuantity}}
+    </p>
+    <p>
+      <strong>Doors:</strong>
+      {{car.Vehicle.@DoorCount}}
+    </p>
+    <p>
+      <strong>Drive:</strong>
+      {{car.Vehicle.@DriveType}}
+    </p>
+    <p>
+      <strong>Fuel:</strong>
+      {{car.Vehicle.@FuelType}}
+    </p>
+    <p>
+      <strong>Transmission:</strong>
+      {{car.Vehicle.@TransmissionType}}
     </p>
     <p>
       <strong>Code:</strong>
@@ -77,26 +97,6 @@
     <p>
       <strong>Code Context:</strong>
       {{car.Vehicle.@CodeContext}}
-    </p>
-    <p>
-      <strong>Door Count:</strong>
-      {{car.Vehicle.@DoorCount}}
-    </p>
-    <p>
-      <strong>Drive Type:</strong>
-      {{car.Vehicle.@DriveType}}
-    </p>
-    <p>
-      <strong>Fuel Type:</strong>
-      {{car.Vehicle.@FuelType}}
-    </p>
-    <p>
-      <strong>Passenger Quantity:</strong>
-      {{car.Vehicle.@PassengerQuantity}}
-    </p>
-    <p>
-      <strong>Transmission Type:</strong>
-      {{car.Vehicle.@TransmissionType}}
     </p>
   </div>
 </section>
