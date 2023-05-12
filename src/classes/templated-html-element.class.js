@@ -1,6 +1,7 @@
-export default class TemplatedHTMLElement extends HTMLElement {
-  scope = {};
+// if use import, it will be error :)
+const lodashGet = require('lodash/get');
 
+export default class TemplatedHTMLElement extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: 'open' });
@@ -29,8 +30,9 @@ export default class TemplatedHTMLElement extends HTMLElement {
 
   passScopeToTemplate(template) {
     return template.replace(
-      /\${(.*?)}/g,
-      (expression, key) => this.scope[key] || expression,
+      /\{{(.*?)}}/g,
+      (expression, key) => lodashGet(this, key, expression),
+      // eslint-disable-next-line function-paren-newline
     );
   }
 }
