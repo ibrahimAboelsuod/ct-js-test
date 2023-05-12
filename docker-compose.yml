@@ -1,0 +1,9 @@
+version: '1.0'
+
+services:
+  car-test--nginx:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    ports:
+      - 80:80
