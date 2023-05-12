@@ -1,4 +1,6 @@
 export default class TemplatedHTMLElement extends HTMLElement {
+  scope = {};
+
   constructor() {
     super();
     this.attachShadow({ mode: 'open' });
@@ -11,7 +13,7 @@ export default class TemplatedHTMLElement extends HTMLElement {
   // eslint-disable-next-line class-methods-use-this
   getTemplateContent(templateHTML) {
     const template = document.createElement('template');
-    template.innerHTML = templateHTML.trim();
+    template.innerHTML = this.passScopeToTemplate(templateHTML.trim());
     return {
       css: template.content.firstChild,
       html: template.content.lastChild,
@@ -23,5 +25,12 @@ export default class TemplatedHTMLElement extends HTMLElement {
     this.shadowRoot.innerHTML = '';
     this.shadowRoot.appendChild(css);
     this.shadowRoot.appendChild(html);
+  }
+
+  passScopeToTemplate(template) {
+    return template.replace(
+      /\${(.*?)}/g,
+      (expression, key) => this.scope[key] || expression,
+    );
   }
 }
