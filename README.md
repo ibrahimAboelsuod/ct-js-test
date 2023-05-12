@@ -1,3 +1,7 @@
+# Deployment?
+
+The app is deployed here: https://ibrahimaboelsuod.github.io/ct-js-test/
+
 # How to run?
 
 ## Via npm (Assuming you have npm installed):
