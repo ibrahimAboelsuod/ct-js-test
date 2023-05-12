@@ -1,9 +1,102 @@
 <style>
-  h1 {
-    color: blueviolet;
+  .car-card {
+    background-color: var(--white);
+    color: rgba(var(--light-contrast-rgb), var(--text-opacity));
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    display: grid;
+    grid-template-rows: 300px 250px;
+    overflow: hidden;
+  }
+  .car-card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4);
+  }
+
+  .car-card__image-wrapper {
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid rgba(var(--light-contrast-rgb), 0.5);
+  }
+
+  .car-card__image-wrapper img {
+    width: 100%;
+    height: auto;
+  }
+
+  .car-card__info-list {
+    overflow: auto;
+    padding: 0.7rem;
+
+    display: grid;
+    grid-gap: 0.5rem;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 2rem;
+  }
+  .car-card__info-list p {
+    margin: 0;
   }
 </style>
-<section>
-  <h1>CAR CARD</h1>
-  <h2>${title}</h2>
+<section class="car-card">
+  <div class="car-card__image-wrapper">
+    <img
+      src="https://ctimg-fleet.cartrawler.com/cadillac/cts/primary.png?auto=format&w=600"
+    />
+  </div>
+  <div class="car-card__info-list">
+    <p>
+      <strong>Make Model:</strong>
+      {{car.Vehicle.VehMakeModel.@Name}}
+    </p>
+    <p>
+      <strong>Status:</strong>
+      {{car.@Status}}
+    </p>
+    <p>
+      <strong>Vendor:</strong>
+      {{car.Vendor.@Name}}
+    </p>
+    <p>
+      <strong>Passenger Quantity:</strong>
+      {{car.Vehicle.@PassengerQuantity}}
+    </p>
+    <p>
+      <strong>Air Condition:</strong>
+      {{car.Vehicle.@AirConditionInd}}
+    </p>
+    <p>
+      <strong>Baggage Quantity:</strong>
+      {{car.Vehicle.@BaggageQuantity}}
+    </p>
+    <p>
+      <strong>Code:</strong>
+      {{car.Vehicle.@Code}}
+    </p>
+    <p>
+      <strong>Code Context:</strong>
+      {{car.Vehicle.@CodeContext}}
+    </p>
+    <p>
+      <strong>Door Count:</strong>
+      {{car.Vehicle.@DoorCount}}
+    </p>
+    <p>
+      <strong>Drive Type:</strong>
+      {{car.Vehicle.@DriveType}}
+    </p>
+    <p>
+      <strong>Fuel Type:</strong>
+      {{car.Vehicle.@FuelType}}
+    </p>
+    <p>
+      <strong>Passenger Quantity:</strong>
+      {{car.Vehicle.@PassengerQuantity}}
+    </p>
+    <p>
+      <strong>Transmission Type:</strong>
+      {{car.Vehicle.@TransmissionType}}
+    </p>
+  </div>
 </section>

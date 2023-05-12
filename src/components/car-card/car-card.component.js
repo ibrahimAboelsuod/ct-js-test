@@ -5,10 +5,6 @@ import HTMLTemplate from './car-card.component.html';
 export default class AppCarCard extends TemplatedHTMLElement {
   static name = 'app-car-card';
 
-  scope = {
-    title: 'Carzzzz Card',
-  };
-
   get car() {
     return this.innerCar;
   }
