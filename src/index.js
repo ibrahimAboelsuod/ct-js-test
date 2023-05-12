@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { AppHeader, AppLooper, AppLegend } from 'components';
+import { AppLooper, AppLegend } from 'components';
 import { getVehiclesData, orderVehiclesBy } from 'services';
 
 import './style.css';
