@@ -15,7 +15,7 @@
       { "devDependencies": ["webpack.dev.config.js", "webpack.prod.config.js"] }
     ],
     "class-methods-use-this": ["off"],
-
+    "implicit-arrow-linebreak": ["off"],
     "no-console": "off"
   },
   "settings": {
