@@ -2,7 +2,8 @@ import 'assets/data/cars.json';
 
 async function fetchCars() {
   try {
-    const response = await fetch('assets/cars.json');
+    // relative path because it gets sad when deployed on on nginx :(
+    const response = await fetch('../assets/cars.json');
 
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
