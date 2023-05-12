@@ -14,6 +14,8 @@
       "error",
       { "devDependencies": ["webpack.dev.config.js", "webpack.prod.config.js"] }
     ],
+    "class-methods-use-this": ["off"],
+
     "no-console": "off"
   },
   "settings": {
