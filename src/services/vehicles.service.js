@@ -14,7 +14,7 @@ async function fetchCars() {
   }
 }
 
-export async function getVehicles() {
+export async function getVehiclesData() {
   const vehiclesData = [];
   // ToDo: move to a service or something
   const VehiclesResponse = (await fetchCars())[0].VehAvailRSCore;
@@ -27,7 +27,7 @@ export async function getVehicles() {
     });
   });
 
-  return vehiclesData;
+  return [vehiclesData, VehiclesResponse.VehRentalCore];
 }
 
 export function orderVehiclesBy(fullFeature, list) {

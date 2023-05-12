@@ -1,19 +1,26 @@
 /* eslint-disable no-unused-vars */
-import { AppHeader, AppLooper } from 'components';
-import { getVehicles, orderVehiclesBy } from 'services';
+import { AppHeader, AppLooper, AppLegend } from 'components';
+import { getVehiclesData, orderVehiclesBy } from 'services';
 
 import './style.css';
 
-let carLooper;
+let carLooperRef;
+let legendRef;
+let pickupAndReturnInfo;
+let carsList;
 
 async function init() {
-  carLooper = document.querySelector('#cars-looper');
+  carLooperRef = document.querySelector('#cars-looper');
+  legendRef = document.querySelector('#cars-legend');
 
-  carLooper.list = orderVehiclesBy('price_up', await getVehicles());
+  [carsList, pickupAndReturnInfo] = await getVehiclesData();
+  carLooperRef.list = orderVehiclesBy('price_up', carsList);
+
+  legendRef.info = pickupAndReturnInfo;
 }
 
 function onOrderFilterChange(event) {
-  carLooper.list = orderVehiclesBy(event.target.value, carLooper.list);
+  carLooperRef.list = orderVehiclesBy(event.target.value, carLooperRef.list);
 }
 
 window.onload = () => {
