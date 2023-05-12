@@ -1,11 +1,20 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
+// move to a shared config
+const pages = ['car'];
 
 module.exports = {
   mode: 'development',
   entry: {
-    bundle: './src/index.js',
+    index: './src/index.js',
+    ...pages.reduce((config, page) => {
+      const newConfig = {
+        ...config,
+      };
+      newConfig[page] = `./src/pages/${page}/${page}.page.js`;
+      return newConfig;
+    }, {}),
   },
   resolve: {
     modules: [path.resolve(__dirname, 'src'), 'node_modules'],
@@ -14,7 +23,18 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './index.html',
       filename: 'index.html',
+      inject: true,
+      chunks: ['index'],
     }),
+    ...pages.map(
+      (page) =>
+        new HtmlWebpackPlugin({
+          inject: true,
+          template: `./src/pages/${page}/index.html`,
+          filename: `${page}/index.html`,
+          chunks: [page],
+        }),
+    ),
     new ESLintPlugin(),
   ],
   module: {
