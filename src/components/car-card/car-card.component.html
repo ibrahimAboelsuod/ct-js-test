@@ -42,65 +42,72 @@
   .car-card__info-list p {
     margin: 0;
   }
+
+  a {
+    text-decoration: none;
+  }
 </style>
-<section class="car-card">
-  <div class="car-card__image-wrapper">
-    <img
-      src="https://ctimg-fleet.cartrawler.com/cadillac/cts/primary.png?auto=format&w=600"
-    />
-  </div>
-  <div class="car-card__info-list">
-    <p>
-      <strong>Make Model:</strong>
-      {{car.Vehicle.VehMakeModel.@Name}}
-    </p>
-    <p>
-      <strong>Status:</strong>
-      {{car.@Status}}
-    </p>
-    <p>
-      <strong>Price:</strong>
-      {{car.TotalCharge.@RateTotalAmount}}
-    </p>
-    <p>
-      <strong>Vendor:</strong>
-      {{car.Vendor.@Name}}
-    </p>
-    <p>
-      <strong>Passengers:</strong>
-      {{car.Vehicle.@PassengerQuantity}}
-    </p>
-    <p>
-      <strong>Air Condition:</strong>
-      {{car.Vehicle.@AirConditionInd}}
-    </p>
-    <p>
-      <strong>Baggage:</strong>
-      {{car.Vehicle.@BaggageQuantity}}
-    </p>
-    <p>
-      <strong>Doors:</strong>
-      {{car.Vehicle.@DoorCount}}
-    </p>
-    <p>
-      <strong>Drive:</strong>
-      {{car.Vehicle.@DriveType}}
-    </p>
-    <p>
-      <strong>Fuel:</strong>
-      {{car.Vehicle.@FuelType}}
-    </p>
-    <p>
-      <strong>Transmission:</strong>
-      {{car.Vehicle.@TransmissionType}}
-    </p>
-    <p>
-      <strong>Code:</strong>
-      {{car.Vehicle.@Code}}
-    </p>
-    <p>
-      <strong>Code Context:</strong>
-      {{car.Vehicle.@CodeContext}}
-    </p>
-  </div>
-</section>
+<a href="./car?id={{ car.id }}">
+  <section class="car-card">
+    <div class="car-card__image-wrapper">
+      <img
+        src="{{ car.Vehicle.PictureURL }}"
+        alt="{{car.Vehicle.VehMakeModel.@Name}}"
+      />
+    </div>
+    <div class="car-card__info-list">
+      <p>
+        <strong>Make Model:</strong>
+        {{car.Vehicle.VehMakeModel.@Name}}
+      </p>
+      <p>
+        <strong>Status:</strong>
+        {{car.@Status}}
+      </p>
+      <p>
+        <strong>Price:</strong>
+        {{car.TotalCharge.@RateTotalAmount}}
+      </p>
+      <p>
+        <strong>Vendor:</strong>
+        {{car.Vendor.@Name}}
+      </p>
+      <p>
+        <strong>Passengers:</strong>
+        {{car.Vehicle.@PassengerQuantity}}
+      </p>
+      <p>
+        <strong>Air Condition:</strong>
+        {{car.Vehicle.@AirConditionInd}}
+      </p>
+      <p>
+        <strong>Baggage:</strong>
+        {{car.Vehicle.@BaggageQuantity}}
+      </p>
+      <p>
+        <strong>Doors:</strong>
+        {{car.Vehicle.@DoorCount}}
+      </p>
+      <p>
+        <strong>Drive:</strong>
+        {{car.Vehicle.@DriveType}}
+      </p>
+      <p>
+        <strong>Fuel:</strong>
+        {{car.Vehicle.@FuelType}}
+      </p>
+      <p>
+        <strong>Transmission:</strong>
+        {{car.Vehicle.@TransmissionType}}
+      </p>
+      <p>
+        <strong>Code:</strong>
+        {{car.Vehicle.@Code}}
+      </p>
+      <p>
+        <strong>Code Context:</strong>
+        {{car.Vehicle.@CodeContext}}
+      </p>
+    </div>
+  </section>
+</a>

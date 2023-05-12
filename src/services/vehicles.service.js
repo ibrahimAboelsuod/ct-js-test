@@ -18,10 +18,11 @@ export async function getVehiclesData() {
   const vehiclesData = [];
   // ToDo: move to a service or something
   const VehiclesResponse = (await fetchCars())[0].VehAvailRSCore;
-  VehiclesResponse.VehVendorAvails.forEach((vehVendorAvail) => {
-    vehVendorAvail.VehAvails.forEach((vehAvail) => {
+  VehiclesResponse.VehVendorAvails.forEach((vehVendorAvail, vendorIndex) => {
+    vehVendorAvail.VehAvails.forEach((vehAvail, vehicleIndex) => {
       vehiclesData.push({
         ...vehAvail,
+        id: `${vendorIndex}-${vehicleIndex}`,
         Vendor: vehVendorAvail.Vendor,
       });
     });
