@@ -15,7 +15,9 @@ export default class AppCarCard extends TemplatedHTMLElement {
   }
 
   render(template = HTMLTemplate) {
-    super.render(template);
+    if (this.car) {
+      super.render(template);
+    }
   }
 }
 

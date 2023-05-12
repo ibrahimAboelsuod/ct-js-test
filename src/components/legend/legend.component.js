@@ -21,7 +21,9 @@ export default class AppLegend extends TemplatedHTMLElement {
   }
 
   render(template = HTMLTemplate) {
-    super.render(template);
+    if (this.info) {
+      super.render(template);
+    }
   }
 }
 
