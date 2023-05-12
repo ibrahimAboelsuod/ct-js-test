@@ -31,7 +31,7 @@ export default class TemplatedHTMLElement extends HTMLElement {
   bindDataToTemplate(template) {
     return template.replace(
       /\{{(.*?)}}/g,
-      (expression, key) => lodashGet(this, key, expression),
+      (expression, key) => lodashGet(this, key.trim(), expression),
       // eslint-disable-next-line function-paren-newline
     );
   }
